@@ -3,4 +3,4 @@ services:
     name: silentaid
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn silentaid_website:app
+    startCommand:  gunicorn silentaid_website:app
