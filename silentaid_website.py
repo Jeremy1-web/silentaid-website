@@ -5,6 +5,7 @@
 
 from flask import Flask, render_template_string, request, redirect, url_for
 import sqlite3
+import os
 
 # -------------------------------
 # 1. CREATE FLASK APP
@@ -14,8 +15,10 @@ app = Flask(__name__)
 # -------------------------------
 # 2. DATABASE SETUP
 # -------------------------------
+DB_NAME = "silentaid.db"
+
 def get_db():
-    conn = sqlite3.connect("silentaid.db")
+    conn = sqlite3.connect(DB_NAME)
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -135,7 +138,7 @@ def admin():
     return render_template_string(ADMIN_HTML, users=users, ngos=ngos)
 
 # -------------------------------
-# 5. RUN SERVER (MUST BE LAST)
+# 5. RUN SERVER
 # -------------------------------
 if __name__ == "__main__":
     app.run(debug=True)
