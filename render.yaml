@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: silentaid
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn silentaid_website:app
